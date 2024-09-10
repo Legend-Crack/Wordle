@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [solution, setSolution] = useState('REACT');
+  const [guesses, setGuesses] = useState<string[]>([]);
+
+  const handleGuess = (guess: string) => {
+    if (guesses.length < 6 && guess.length === 5) {
+      setGuesses([...guesses, guess]);
+      if (guess === solution) {
+        alert('You win!');
+      }
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Wordle</h1>
+      {/* <Board /> */}
+      {/* <Keyboard /> */}
     </div>
   );
 }
