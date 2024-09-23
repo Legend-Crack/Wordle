@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 interface KeyboardProps {
   currentGuess: string;
@@ -14,16 +14,19 @@ const Keyboard = ({ currentGuess, setCurrentGuess, onSubmitGuess }: KeyboardProp
   ];
 
   // input by clicking keyboard
-  const handleKeyPress = (key: string) => {
-    if (key === 'Enter') {
-      onSubmitGuess();
-      setCurrentGuess('');
-    } else if (key === 'Backspace') {
-      setCurrentGuess(currentGuess.slice(0, -1));
-    } else if (currentGuess.length < 5) {
-      setCurrentGuess(currentGuess + key);
-    }
-  };
+  const handleKeyPress = useCallback(
+    (key: string) => {
+      if (key === 'Enter') {
+        onSubmitGuess();
+        setCurrentGuess('');
+      } else if (key === 'Backspace') {
+        setCurrentGuess(currentGuess.slice(0, -1));
+      } else if (currentGuess.length < 5) {
+        setCurrentGuess(currentGuess + key);
+      }
+    },
+    [currentGuess, setCurrentGuess, onSubmitGuess]
+  );
 
   // input by pressing keyboard
   useEffect(() => {
@@ -44,7 +47,7 @@ const Keyboard = ({ currentGuess, setCurrentGuess, onSubmitGuess }: KeyboardProp
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [currentGuess]);
+  }, [handleKeyPress]);
 
   return (
     <div className="keyboard">
