@@ -16,9 +16,11 @@ const Keyboard = ({ currentGuess, setCurrentGuess, onSubmitGuess }: KeyboardProp
   // input by clicking keyboard
   const handleKeyPress = useCallback(
     (key: string) => {
-      if (key === 'Enter') {
+      if (key === 'Enter' && currentGuess.length === 5) {
         onSubmitGuess();
         setCurrentGuess('');
+      } else if (key === 'Enter') {
+        return
       } else if (key === 'Backspace') {
         setCurrentGuess(currentGuess.slice(0, -1));
       } else if (currentGuess.length < 5) {
