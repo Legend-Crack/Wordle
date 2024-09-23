@@ -16,6 +16,11 @@ const App = () => {
   // }
 
   const [currentGuess, setCurrentGuess] = useState('');
+  const [keyStatuses, setKeyStatuses] = useState<{ [key: string]: 'correct' | 'present' | 'absent' | '' }>({
+    Q: 'correct', W: 'present', E: 'absent', R: '', T: '', Y: '', U: '', I: '', O: '', P: '',
+    A: '', S: '', D: '', F: '', G: '', H: '', J: '', K: '', L: '',
+    Z: '', X: '', C: '', V: '', B: '', N: '', M: ''
+  });
 
   return (
     <div className="App">
@@ -25,6 +30,7 @@ const App = () => {
         currentGuess={currentGuess} 
         setCurrentGuess={setCurrentGuess} 
         onSubmitGuess={() => {}}
+        keyStatuses={keyStatuses}
       />
       <p>Current Guess: {currentGuess}</p>
     </div>
