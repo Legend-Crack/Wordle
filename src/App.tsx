@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Keyboard from './Keyboard';
+import Board from './Board';
 
 const App = () => {
   // const [solution, setSolution] = useState('REACT');
@@ -26,7 +27,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Wordle</h1>
-      {/* <Board /> */}
+      <Board />
       <Keyboard 
         currentGuess={currentGuess} 
         setCurrentGuess={setCurrentGuess} 
