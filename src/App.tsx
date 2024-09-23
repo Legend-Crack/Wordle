@@ -3,9 +3,6 @@ import './App.css';
 import Keyboard from './Keyboard';
 import Board from './Board';
 
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
 const App = () => {
   // const [solution, setSolution] = useState('REACT');
   // const [guesses, setGuesses] = useState<string[]>([]);

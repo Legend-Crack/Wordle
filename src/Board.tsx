@@ -1,21 +1,7 @@
-import React, { useEffect, useCallback } from 'react';
+// import React, { useEffect, useCallback } from 'react';
 import './App.css';
 
-
-
 const Board = () => {
-
-
-
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-    // 코딩하고 해위 ㅋㅋ
-
-
-
-
-
 
     return (
         <div className='boardContainer'>
