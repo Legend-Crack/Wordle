@@ -16,6 +16,7 @@ const App = () => {
   // }
 
   const [currentGuess, setCurrentGuess] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [keyStatuses, setKeyStatuses] = useState<{ [key: string]: 'correct' | 'present' | 'absent' | '' }>({
     Q: 'correct', W: 'present', E: 'absent', R: '', T: '', Y: '', U: '', I: '', O: '', P: '',
     A: '', S: '', D: '', F: '', G: '', H: '', J: '', K: '', L: '',
