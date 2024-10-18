@@ -18,6 +18,7 @@ const App = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [words, setWords] = useState<string[]>([]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleGuess = (guess: string) => {
     if (guesses.length < 6 && guess.length === 5) {
       setGuesses([...guesses, guess]);
