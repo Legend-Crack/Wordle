@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useEffect, useCallback } from 'react';
 import './App.css';
 
@@ -11,7 +11,7 @@ interface BoardProps {
   currentGuess: string;
   guessCount: number;
 }
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Board: React.FC<BoardProps> = ( {setKeyStatuses, currentGuess, guessCount}: BoardProps ) => {
   const rows: string[][] = Array(6).fill(Array(5).fill(''));
 
