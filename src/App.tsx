@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Keyboard from './Keyboard';
@@ -6,14 +7,15 @@ import Board from './Board';
 const App = () => {
   const [solution, setSolution] = useState('REACT');
   const [guesses, setGuesses] = useState<string[]>([]);
+  // eslint-disable-next-line no-unused-vars
   const [guessCount, setGuessCount] = useState(0);
   const [currentGuess, setCurrentGuess] = useState('');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [keyStatuses, setKeyStatuses] = useState<{ [key: string]: 'correct' | 'present' | 'absent' | '' }>({
     Q: 'correct', W: 'present', E: 'absent', R: '', T: '', Y: '', U: '', I: '', O: '', P: '',
     A: '', S: '', D: '', F: '', G: '', H: '', J: '', K: '', L: '',
     Z: '', X: '', C: '', V: '', B: '', N: '', M: ''
   });
+  // eslint-disable-next-line no-unused-vars
   const [words, setWords] = useState<string[]>([]);
 
   const handleGuess = (guess: string) => {
