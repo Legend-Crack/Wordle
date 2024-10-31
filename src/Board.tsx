@@ -1,24 +1,35 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 interface BoardProps {
-  setKeyStatuses: (
-    value: { [key: string]: 'correct' | 'present' | 'absent' | '' } | 
-    ((prevState: { [key: string]: 'correct' | 'present' | 'absent' | '' }) => 
-    { [key: string]: 'correct' | 'present' | 'absent' | '' })
-  ) => void;
+  guesses: string[]
   currentGuess: string;
   guessCount: number;
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Board: React.FC<BoardProps> = ( {setKeyStatuses, currentGuess, guessCount}: BoardProps ) => {
-  const rows: string[][] = Array(6).fill(Array(5).fill(''));
+const Board: React.FC<BoardProps> = ( {guesses, currentGuess, guessCount}: BoardProps ) => {
+  const [rows, setRows] = useState<string[][]>(Array(6).fill(Array(5).fill('')));
 
-  rows[0] = ['H', 'E', 'L', 'L', 'O'];
+  // 현재 입력 중인 guess를 rows 배열에 반영
+  useEffect(() => {
+    setRows((prevRows) => {
+      const updatedRows = [...prevRows];
+      updatedRows[guessCount] = currentGuess.split('').concat(Array(5 - currentGuess.length).fill(''));
+      return updatedRows;
+    });
+  }, [currentGuess, guessCount]);
 
-  const guessArray = currentGuess.split('');
-  rows[guessCount] = guessArray.concat(Array(5-guessArray.length).fill(''));
+  // guesses 배열을 기반으로 rows 업데이트
+  useEffect(() => {
+    setRows((prevRows) => {
+      const updatedRows = [...prevRows];
+      guesses.forEach((guess, index) => {
+        updatedRows[index] = guess.split('');
+      });
+      return updatedRows;
+    });
+  }, [guesses]);
 
   return (
     <div className='boardContainer'>

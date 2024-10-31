@@ -19,7 +19,6 @@ const Keyboard = ({ currentGuess, setCurrentGuess, onSubmitGuess, keyStatuses }:
       if (key === 'Enter') {
         if (currentGuess.length === 5) {
           onSubmitGuess();
-          setCurrentGuess('');
         }
       } else if (key === 'Backspace') {
         setCurrentGuess(currentGuess.slice(0, -1));
